@@ -1,0 +1,290 @@
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* CSS RESET */
+*,
+*::befor,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+
+
+
+input {
+    border: 0px;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+input::placeholder {
+    color: inherit;
+}
+
+input:focus-visible,
+input:focus-within {
+    outline: none;
+    background-color: inherit;
+}
+
+
+button {
+    background-color: inherit;
+    border: 0px;
+    cursor: pointer;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* CUSTOM PROPERTIES */
+:root {
+    /* colors */
+    --clr-primary-desaturated-red: 0 36% 70%;
+    --clr-primary-soft-red: 0 93% 68%;
+
+    --clr-neutral-900: 0 6% 24%;
+
+    /* color gradients */
+    --gradient-white: 135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%);
+    --gradient-red: 135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%);
+    /* font-families */
+    --ff-primary: "Josefin Sans", sans-serif;
+
+    /* font-weights */
+    --fw-light: 300;
+    --fw-normal: 400;
+    --fw-semi-bold: 600;
+
+    /* font-families */
+    --fs-300: .875rem;
+    --fs-400: 1rem;
+    --fs-500: 1.25rem;
+    --fs-500: 1.5rem;
+    --fs-600: 1.75rem;
+    --fs-700: 2rem;
+    --fs-800: 2.5rem;
+    --fs-900: 2.125rem;
+
+}
+@media screen and (min-width: 768px) {
+    :root{
+    --fs-900:4rem;
+    }
+}
+
+/* GENERAL CLASSES */
+body {
+    position: relative;
+    min-height: 100vh;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-normal);
+    line-height: 1.4;
+    color: hsl(var(--clr-primary-desaturated-red));
+    background: linear-gradient(var(--gradient-white));
+}
+
+/* LAYOUT */
+.wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+
+}
+
+@media screen and (min-width:768px) {
+    .container {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "header image"
+            "main image"
+        ;
+    }
+
+    .main {
+        grid-area: main;
+        padding-left : 4rem;
+       display: flex;
+       justify-items: center;
+       align-items: center;
+    }
+
+    .img_section {
+        grid-area: image;
+    }
+
+    .header {
+        margin-top: 4rem;
+        grid-area: header;
+        padding-left : 4rem;
+    }
+
+}
+
+/* UTILITY CLASSES */
+.icon {
+    height: 1rem;
+    width: 1rem;
+}
+
+.flow>*:not(:last-child) {
+    margin-bottom: var(--mb, 1rem);
+}
+
+/* COMPONENT */
+.img_section{
+    position: relative;
+}
+/* Add this to your existing CSS */
+.img_section {
+    position: relative;
+    overflow: hidden; /* Prevents overflow */
+    height: 100%; /* Ensures it takes the full height of its parent */
+}
+
+.img_section img,
+.img_section picture {
+    width: 100%; /* Makes the image responsive */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Ensures no extra space below the image */
+}
+
+.header_container {
+    padding-inline: 2rem;
+    padding-block: 1rem;
+}
+
+.logo_section {
+    width: 5rem;
+}
+
+.main_container {
+    text-align: center;
+    margin: 3rem 1rem;
+}
+
+
+/* title */
+.main_title {
+    padding-inline: 2rem;
+    line-height: 1;
+    font-size: var(--fs-900);
+    text-transform: uppercase;
+    font-weight: var(--fw-light);
+    letter-spacing: 8px;
+}
+
+.main_title span {
+    color: hsl(var(--clr-neutral-900));
+    font-weight: var(--fw-semi-bold);
+}
+
+.main_summary {
+    padding-inline: 1rem;
+}
+
+.input_box {
+    position: relative;
+    border: 1px solid hsl(var(--clr-primary-desaturated-red));
+    border-radius: 45px;
+    display: grid;
+    align-items: center;
+    height: 3rem;
+    grid-template-columns: 1fr 10px 100px;
+    max-width: 600px;
+
+}
+
+.input_box input[placeholder="Email Address"] {
+    height: 100%;
+    padding-inline-start: 1rem;
+    background-color: inherit;
+
+}
+
+
+.error_icon {
+    display: none;
+    /* Hide the error icon by default */
+}
+
+.input_box.error {
+    border-color: hsl(var(--clr-primary-soft-red));
+    /* Change border color for error */
+}
+
+.input_box.error .error_icon {
+    display: flex;
+    /* Show the error icon */
+}
+
+/* Success State */
+.input_box.success {
+    border-color: hsl(120, 100%, 50%);
+    /* Change border color for success */
+}
+
+.form_btn {
+    position: absolute;
+    right: 0;
+    background: linear-gradient(var(--gradient-red));
+    height: 100%;
+    width: 80px;
+
+    border-radius: 50px;
+    box-shadow: 1px 12px 16px 0px hsl(var(--clr-primary-desaturated-red));
+}
+
+
+.error_message {
+    display: none;
+    text-align: left;
+    padding-inline-start: 1rem;
+}
+
+
+footer {
+    display: none;
+}
+
+@media screen and (min-width:768px) {
+    main{
+        padding-inline: 2rem;
+    }
+    .main_container{
+        text-align: left;
+    }
+    .main_title,.main_summary{
+        padding : 0;
+        margin : 0;
+    }
+    
+.logo_section {
+    width: 8rem;
+}
+}

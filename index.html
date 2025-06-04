@@ -1,33 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="./style/style.css">
   <title>Frontend Mentor | Base Apparel coming soon page</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+
 </head>
+
 <body>
+  <div class="wrapper">
+  <div class="container">
+      <header class="header">
+      <div class="header_container">
+        <div class="logo_section">
+          <img src="./images/logo.svg" alt="Logo" aria-label="base apparel" />
+        </div>
+      </div>
+    </header>
+    <div class="img_section">
+   <picture>
+     <source srcset="./images/hero-desktop.jpg" media="(min-width: 768px)" />
+    <img src="./images/hero-mobile.jpg" alt="girl image" aria-label="girl image" />
+</picture>
 
-  We're coming soon
+    </div>
+    <main class="main">
+      <div class="main_container flow">
+        <h1 class="main_title">
+          We're <span>
+            coming soon
+          </span>
+        </h1>
+        <p class="main_summary">
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our launch deals.
 
-  Hello fellow shoppers! We're currently building our new fashion store. 
-  Add your email below to stay up-to-date with announcements and our launch deals.
+        </p>
+          <div class="form_section flow" style="--mb : 0.5rem">
+            <div class="input_box">
+              <input type="text"  placeholder="Email Address" id="email"/>
+            <div class="error_icon">
+              <img src="./images/icon-error.svg" class="icon" alt="error icon" aria-hidden="true"/>
+            </div>
+            <button class="form_btn" type="button" id="submit">
+              <img src="./images/icon-arrow.svg" class="icon" alt="submit button" aria-hidden="true"/>
+            </button>
+            </div>
+            <div class="error_message">
+              <span>
+              Please provide a valid email
+            </span>
+            </div>
+          </div>
+      </div>
 
-  Email Address
-  
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </p>
-  </footer>
+
+
+    </main>
+  </div>
+    
+    
+    
+    
+
+    
+    <footer>
+      <p>
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="https://github.com/sayyedaaman2/base-apparel-coming-soon-master">Sayyed Aaman</a>.
+      </p>
+    </footer>
+  </div>
+  <script src="./script/script.js"></script>
 </body>
+
 </html>
